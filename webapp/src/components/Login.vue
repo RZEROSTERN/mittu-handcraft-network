@@ -13,6 +13,8 @@
         div.uk-margin.uk-text-center
           button.uk-button.uk-button-primary("v-on:click"='signIn', type="button") Iniciar Sesión
         div.uk-margin.uk-text-center
+          button.uk-button.uk-button-primary("v-on:click"='signInFacebook', type="button") Iniciar Sesión con Facebook
+        div.uk-margin.uk-text-center
           a(href="/signup") Regístrate
 </template>
 <script>
@@ -36,6 +38,30 @@
             alert("Nombre de usuario o contraseña incorrectos.")
           }
         );
+      },
+      signInFacebook: function(){
+        let provider = new firebase.auth.FacebookAuthProvider();
+        provider.addScope("user_birthday");
+
+        firebase.auth().languageCode = 'es_MX';
+
+        provider.setCustomParameters({
+          'display': 'popup'
+        });
+
+        firebase.auth().signInWithPopup(provider).then(
+          (result) => {
+            this.$router.go('dashboard')
+          }
+        ).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+        });
       }
     }
   }

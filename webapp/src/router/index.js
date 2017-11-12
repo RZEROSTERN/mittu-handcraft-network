@@ -8,6 +8,8 @@ import Login from '@/components/Login'
 import Signup from '@/components/Signup'
 import Dashboard from '@/components/Dashboard'
 import Logout from '@/components/Logout'
+import Handcrafts from '@/components/Handcrafts'
+import HandcraftsCreate from '@/components/HandcraftsCreate'
 
 Vue.use(Router)
 
@@ -50,6 +52,22 @@ let router = new Router({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/handcrafts',
+      name: 'Handcrafts',
+      component: Handcrafts,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/handcrafts/create',
+      name: 'HandcraftsCreate',
+      component: HandcraftsCreate,
       meta: {
         requiresAuth: true
       }
