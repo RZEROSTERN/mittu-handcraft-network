@@ -1,0 +1,30 @@
+{
+  "categories":[
+    {
+      "id":1,
+      "name":"Category 1"
+    },
+    {
+      "id":2,
+      "name":"Category 2"
+    },
+    {
+      "id":3,
+      "name":"Category 3"
+    }
+  ],
+  "products":[
+    {
+      "id":1,
+      "name":"Product 1",
+      "category_id":1,
+      "dimensions":"Lorem Ipsum",
+      "materials":"Lorem Ipsum",
+      "website":"https://google.com",
+      "description":"Lorem ipsum dolor sit amet"
+    }
+  ],
+  "profiles":[
+
+  ]
+}
